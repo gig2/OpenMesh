@@ -175,6 +175,14 @@ endif()
 
 # ========================================================================
 
+# Generate openmesh.pc file
+
+set(DEST_DIR "${CMAKE_INSTALL_PREFIX}")
+set(PRIVATE_LIBS "-lOpenMeshCore -lOpenMeshTools")
+
+configure_file("openmesh.pc.in" "${CMAKE_CURRENT_BINARY_DIR}/openmesh.pc" @ONLY)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openmesh.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/libdata/pkgconfig)
 
 # display results
 acg_print_configure_header (OPENMESH "OpenMesh")
