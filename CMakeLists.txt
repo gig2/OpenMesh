@@ -133,7 +133,13 @@ else()
 	set (OPENMESH_LIBRARY_DIR "${_OPENMESH_LIBRARY_DIR}" CACHE PATH "The directory where the OpenMesh libraries can be found.")
 endif()
 
-add_subdirectory (Doc)
+if ( NOT DEFINED OPENMESH_DOCS )
+  set( OPENMESH_DOCS false CACHE BOOL "Enable or disable building of apps" )
+endif()
+
+if (OPENMESH_DOCS)
+  add_subdirectory (Doc)
+endif()
 
 # ========================================================================
 # Bundle generation (Targets exist, now configure them)
