@@ -190,5 +190,11 @@ configure_file("openmesh.pc.in" "${CMAKE_CURRENT_BINARY_DIR}/openmesh.pc" @ONLY)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openmesh.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/libdata/pkgconfig)
 
+# generate target file
+
+install(EXPORT OpenMeshConfig DESTINATION share/OpenMesh/cmake)
+
+export(TARGETS OpenMeshCore OpenMeshTools FILE OpenMeshConfig.cmake)
+
 # display results
 acg_print_configure_header (OPENMESH "OpenMesh")
